@@ -1,6 +1,4 @@
-/**
- * card suits and values
- */
+/** card suits and values */
 const suits = ["Diamond", "Spade", "Club", "Heart"];
 const card_values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A",];
 
@@ -22,9 +20,31 @@ function create_deck() {
 
 }
 
-/**
- * check code correctness
- */
+/** initialize deck */
 const deck = create_deck();
-console.log(deck);
-console.log(deck.length);   
+
+/** check code correctness */
+// console.log(deck);
+// console.log(deck.length);   
+
+/**
+ * function: shuffles deck
+ * iterates through deck in a decreasing manner and randomizes each index 
+ * in order to imitate a shuffle 
+ * @returns shuffled deck
+ */
+function shuffle() {
+    for(let i = deck.length; i > 0; --i) {
+        const index = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[index]] = [deck[index], deck[i]]
+    }
+    return deck;
+}
+
+/** shuffled deck */
+const shuffled_deck = shuffle(deck);
+
+/** check for correctness */
+console.log(shuffled_deck);
+console.log();
+
