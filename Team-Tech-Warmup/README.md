@@ -4,9 +4,15 @@ Branch this repo to work on the Team Tech Warmup Assignment.
 
 Here are the meeting notes about the process: [4-17-25](https://github.com/cse110-sp25-group23/Meeting-Notes/blob/main/notes/4-17-25.md)
 
+[📄 View Submission PDF](admin/adr/Warmup%20Exercise%20-%20Team%20and%20Technology%20DeRisk.pdf)
 
 
+## Team Info
 
+- **Team Name**: gigachads
+- **Team Number**: 23
+- **Repo Maintainer**: all
+- **Primary Contributors**: Kelvin - Rain - Luis
 ---
 
 ## Progress Overview
@@ -19,7 +25,7 @@ We are following the assignment step-by-step:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **HTML/CSS/JavaScript**
 - **Web Components** (custom elements) [Custom Web Component Tutorial](https://www.youtube.com/watch?v=4ZCJDf5gjLA&ab_channel=GoMakeThings)
@@ -33,6 +39,7 @@ We are following the assignment step-by-step:
 
 - **YouTube Video**: [Link to demo]
 - **Gradescope Submission PDF**: See `admin/adr/`
+- **Write-up from canvas**: See `admin/adr/`
 
 ---
 
@@ -42,9 +49,3 @@ Full SWOT included in [`/admin/adr/warmup-swot.pdf`](admin/adr/warmup-swot.pdf)
 
 ---
 
-## Team Info
-
-- **Team Name**: gigachads
-- **Team Number**: 23
-- **Repo Maintainer**: all
-- **Primary Contributors**: Kelvin - Rain - Luis
