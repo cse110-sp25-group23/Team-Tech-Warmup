@@ -35,7 +35,7 @@
             position: relative;
             vertical-align: top;
         }
-
+        /* Main card design layout */
         .card {
             width: 100px;
             box-sizing: border-box;
@@ -53,6 +53,7 @@
             transform-style: preserve-3d;
             cursor: pointer;
         }
+        /* How the Card appears when the cursor is hovering over it */
         .scene:hover {
             z-index: 100; 
             margin-right: 10px;
@@ -108,7 +109,7 @@
     </style>
 </head>
 <body>
-    <!--Title and small info in here, as well as activating ther button action-->
+    <!--Title and small info in here, as well as activating the button action-->
     <div class="deck">
         <h1>A Round of Blackjack</h1>
         <p>By Kelvin Tetteh, Rain van Eetveldt, and Luis Zaragoza</p>
@@ -135,7 +136,7 @@
 
             return deck;
         }
-
+        /* Shuffle randomizer */
         function shuffle() {
             for (var i = 0; i < 1000; i++) {
                 var location1 = Math.floor((Math.random() * deck.length));
@@ -148,7 +149,7 @@
 
             renderDeck();
         }
-
+        /* This puts the number and symbol (heart, spade, etc) onto the cards we made */
         function renderDeck() {
             document.getElementById('deck').innerHTML = '';
 
@@ -187,7 +188,7 @@
                 });
             }
         }
-
+        /* This puts the card designs onto the site */
         function load() {
             deck = getDeck();
             shuffle();
