@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Deck with Flip and Shuffling</title>
+    <style>
+        body {
+            /* Setting up the background layout and font color */
+            background: rgb(1, 62, 1);    
+            background-image: url("blackjack_table.jpg");
+            color: white;
+        }
+
+        .description a {
+            color: rgb(79, 73, 38);
+        }
+        /* Deck and card size and setup */
+        .deck {
+            width: 60%;
+            margin: 10px auto;
+            padding: 10px 40px;
+            text-align: center;
+            box-sizing: border-box;
+            font-family: 'Impact';
+        }
+
+        .scene {
+            display: inline-block;
+            width: 100px;
+            height: 150px;
+            perspective: 1000px;
+            margin-left: -30px;
+            margin-bottom: 10px;
+            position: relative;
+            vertical-align: top;
+        }
+
+        .card {
+            width: 100px;
+            box-sizing: border-box;
+            height: 150px;
+            padding: 10px;
+            background-color: white;
+            display: inline-block;
+            border-radius: 10px;
+            font-size: 30pt;
+            text-align: left;
+            color: black;
+            position: relative;
+            transition: all .5s;
+            box-shadow: 2px 2px 5px 3px #555;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        .scene:hover {
+            z-index: 100; 
+            margin-right: 10px;
+        }
+
+        .card:hover {
+            top: -5px;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 2px 2px 8px 3px #333;
+            z-index: 100;
+        }
+
+        .card.hearts, .card.diamonds {
+            color: red;
+        }
+        /* Setting up the flip animation */
+        .card.is-flipped {
+            transform: rotateY(180deg) translateY(-5px);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            top: 0;
+            left: 0;
+        }
+
+        .card-back {
+            background-color: rgb(156, 0, 0);
+            background-image: url("card_back.png");
+            transform: rotateY(180deg);
+        }
+        /* Designing the look of the shuffle button */
+        .btn {
+            background: rgb(11, 255, 222);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin: 10px;
+            display: inline-block;
+            color: black;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        /* Hover Color */
+        .btn:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <!--Title and small info in here, as well as activating ther button action-->
+    <div class="deck">
+        <h1>A Round of Blackjack</h1>
+        <p>By Kelvin Tetteh, Rain van Eetveldt, and Luis Zaragoza</p>
+        <div>
+            <button onclick="shuffle()" class="btn">Shuffle</button>
+        </div>
+        <div id="deck"></div>
+    </div>
+    <!-- Javascript for getting and shuffling Cards -->
+    <script>
+        var cards = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+        var suits = ["diamonds", "hearts", "spades", "clubs"];
+        var deck = new Array();
+
+        function getDeck() {
+            var deck = new Array();
+
+            for(var i = 0; i < suits.length; i++) {
+                for(var x = 0; x < cards.length; x++) {
+                    var card = {Value: cards[x], Suit: suits[i]};
+                    deck.push(card);
+                }
+            }
+
+            return deck;
+        }
+
+        function shuffle() {
+            for (var i = 0; i < 1000; i++) {
+                var location1 = Math.floor((Math.random() * deck.length));
+                var location2 = Math.floor((Math.random() * deck.length));
+                var tmp = deck[location1];
+
+                deck[location1] = deck[location2];
+                deck[location2] = tmp;
+            }
+
+            renderDeck();
+        }
+
+        function renderDeck() {
+            document.getElementById('deck').innerHTML = '';
+
+            for(var i = 0; i < deck.length; i++) {
+                var scene = document.createElement("div");
+                scene.classList.add('scene');
+                
+                var card = document.createElement("div");
+                card.classList.add('card');
+                card.classList.add(deck[i].Suit);
+                
+                var icon = '';
+                if (deck[i].Suit == 'hearts')
+                    icon = '♥';
+                else if (deck[i].Suit == 'spades')
+                    icon = '♠';
+                else if (deck[i].Suit == 'diamonds')
+                    icon = '♦';
+                else
+                    icon = '♣';
+
+                var front = document.createElement("div");
+                front.classList.add('card-front');
+                front.innerHTML = deck[i].Value + ' ' + icon;
+                
+                var back = document.createElement("div");
+                back.classList.add('card-back');
+                
+                card.appendChild(front);
+                card.appendChild(back);
+                scene.appendChild(card);
+                document.getElementById("deck").appendChild(scene);
+                
+                card.addEventListener('click', function() {
+                    this.classList.toggle('is-flipped');
+                });
+            }
+        }
+
+        function load() {
+            deck = getDeck();
+            shuffle();
+            renderDeck();
+        }
+
+        window.addEventListener('load', load);
+    </script>
+</body>
+</html>
