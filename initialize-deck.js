@@ -1,5 +1,5 @@
 /** card suits and values */
-const suits = ["Diamond", "Spade", "Club", "Heart"];
+const suits = ["Diamonds", "Spades", "Clubs", "Hearts"];
 const card_values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A",];
 
 /**
@@ -33,8 +33,8 @@ const deck = create_deck();
  * in order to imitate a shuffle 
  * @returns shuffled deck
  */
-function shuffle() {
-    for(let i = deck.length; i > 0; --i) {
+function shuffle(deck) {
+    for(let i = deck.length - 1; i > 0; --i) {
         const index = Math.floor(Math.random() * (i + 1));
         [deck[i], deck[index]] = [deck[index], deck[i]]
     }
@@ -45,6 +45,31 @@ function shuffle() {
 const shuffled_deck = shuffle(deck);
 
 /** check for correctness */
-console.log(shuffled_deck);
-console.log();
+// console.log(shuffled_deck);
+// console.log();
+
+function drawCards(num, deck) {
+    /** Tracks cards drawn */
+    const drawn_cards = [];
+
+    /** Deals the cards depending on inputted number */
+    for(let i = 0; i < num; ++i) {
+        if(deck.length === 0) {
+            break;
+        }
+        /** Remove card from shuffled deck */
+        const card = deck.pop();
+
+        /** Append card into cards_drawn array*/
+        drawn_cards.push(card);
+    }
+        /** Return one card or multiple cards */
+        if(drawn_cards.length === 1){
+            return drawn_cards[0];
+        }
+        else {
+            return drawn_cards
+        }
+}
+
 
