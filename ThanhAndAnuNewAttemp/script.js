@@ -1,17 +1,10 @@
 const shuffleBtn = document.getElementById("shuffleBtn");
-const cards = document.querySelectorAll(".card");
+const cards = document.querySelectorAll("playing-card");
 
 shuffleBtn.addEventListener("click", () => {
     cards.forEach((card, i) => {
-        // Add a slight delay per card for staggered effect
         setTimeout(() => {
-            card.classList.add("shuffling");
-
-            // Remove the animation class after it completes
-            setTimeout(() => {
-                card.classList.remove("shuffling");
-            }, 600);
+            card.shuffle();
         }, i * 100);
     });
 });
-

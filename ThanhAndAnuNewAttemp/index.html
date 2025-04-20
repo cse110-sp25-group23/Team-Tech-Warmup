@@ -6,22 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deck Shuffle Animation</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="CardComponents.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <div class="deck-container">
         <div id="deck">
-            <!-- Stack of 5 cards -->
-            <div class="card">🂠</div>
-            <div class="card">🂠</div>
-            <div class="card">🂠</div>
-            <div class="card">🂠</div>
-            <div class="card">🂠</div>
+            <playing-card></playing-card>
+            <playing-card></playing-card>
+            <playing-card></playing-card>
+            <playing-card></playing-card>
+            <playing-card></playing-card>
         </div>
         <button id="shuffleBtn">Shuffle</button>
     </div>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
