@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Adds CSS File-->
+  <link rel = "stylesheet" href="style.css">
+
+  <!-- Adds font using google font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  
+  <title>Card Widget</title>
+</head>
+
+<body>
+  <!-- <h1>Card Flip Demo</h1>
+
+  <playing-card value="A" suit="Spades"></playing-card>
+  <playing-card value="10" suit="Hearts"></playing-card> -->
+
+  <!--Title and small info in here, as well as activating the button action-->
+  <div class="deck">
+    <h1>A Round of Blackjack</h1>
+    <p>By Kelvin Tetteh, Rain van Eetveldt, and Luis Zaragoza</p>
+    <div>
+        <button onclick="shuffle()" class="btn">Shuffle</button>
+    </div>
+    <div id="deck"></div>
+</div>
+<div id="my-deck" class="drop-zone">Your Deck</div>
+
+<script type="module" src="utils.js"></script>
+<script type="module" src="deck.js"></script>
+
+
+</body>
+
+</html>

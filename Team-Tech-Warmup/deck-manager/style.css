@@ -1,0 +1,121 @@
+/*
+body {
+    font-family: "lato";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+  }
+*/
+body {
+    /* Setting up the background layout and font color */
+    background: rgb(1, 62, 1);    
+    background-image: url("../images/blackjack_table.jpg");
+
+    color: white;
+}
+
+.description a {
+    color: rgb(79, 73, 38);
+}
+/* Deck and card size and setup */
+.deck {
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px 40px;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Impact';
+}
+
+.scene {
+    display: inline-block;
+    width: 100px;
+    height: 150px;
+    perspective: 1000px;
+    margin-left: -30px;
+    margin-bottom: 10px;
+    position: relative;
+    vertical-align: top;
+}
+/* Main card design layout */
+.card {
+    width: 100px;
+    box-sizing: border-box;
+    height: 150px;
+    padding: 10px;
+    background-color: white;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 30pt;
+    text-align: left;
+    color: black;
+    position: relative;
+    transition: all .5s;
+    box-shadow: 2px 2px 5px 3px #555;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+/* How the Card appears when the cursor is hovering over it */
+.scene:hover {
+    z-index: 100; 
+    margin-right: 10px;
+}
+
+.card:hover {
+    top: -5px;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 2px 2px 8px 3px #333;
+    z-index: 100;
+}
+
+.card.hearts, .card.diamonds {
+    color: red;
+}
+/* Setting up the flip animation */
+.card.is-flipped {
+    transform: rotateY(180deg) translateY(-5px);
+}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+}
+
+.card-back {
+    background-color: rgb(156, 0, 0);
+    background-image: url("../images/card_back.png");
+    transform: rotateY(180deg);
+}
+/* Designing the look of the shuffle button */
+.btn {
+    background: rgb(11, 255, 222);
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin: 10px;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+/* Hover Color */
+.btn:hover {
+    background: #444;
+}
+
+.drop-zone {
+    border: 2px dashed white;
+    min-height: 160px;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
