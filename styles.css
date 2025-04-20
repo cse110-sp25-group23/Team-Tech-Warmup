@@ -27,6 +27,6 @@ button:hover {
 
 section#playerCards, section#dealerCards{
     display: flex;
-    flex: wrap;
+    flex-wrap: wrap;
     gap: 10px;
 }

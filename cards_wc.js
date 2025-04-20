@@ -36,6 +36,7 @@ document.getElementById("newRound").addEventListener("click", () => {
     //clear cards
     playerCards.innerHTML = '';
     dealerCards.innerHTML = '';
+    deck = shuffle(create_deck());
 
     //add 2 player cards
     let cardVals = drawCards(1, deck);
