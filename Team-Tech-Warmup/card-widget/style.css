@@ -1,18 +1,7 @@
-/*
-body {
-    font-family: "lato";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 2rem;
-  }
-*/
 body {
     /* Setting up the background layout and font color */
     background: rgb(1, 62, 1);    
     background-image: url("../images/blackjack_table.jpg");
-
     color: white;
 }
 
