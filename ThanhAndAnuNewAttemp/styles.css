@@ -1,0 +1,93 @@
+body {
+    background: radial-gradient(circle, #1b5e20 0%, #0d3b15 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+.deck-container {
+    text-align: center;
+}
+
+#deck {
+    position: relative;
+    width: 180px;
+    height: 260px;
+    margin: 0 auto 30px;
+}
+
+
+.card {
+    position: absolute;
+    width: 180px;
+    height: 260px;
+    font-size: 250px;
+    /* Bigger! fills the whole card */
+    text-align: center;
+    line-height: 260px;
+    color: rgb(255, 255, 255);
+    /* Font color */
+    background-color: #2de255;
+    /* Blue background for card */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 3px solid #ffffff;
+    animation: none;
+    transform: translate(0, 0);
+    transition: transform 0.3s ease;
+    user-select: none;
+    font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+}
+
+/* Optional: Use a playing card style font if installed */
+.card {
+    font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+}
+
+
+/* Keyframes for shuffle animation */
+@keyframes shuffle {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-30px) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateX(30px) rotate(8deg);
+    }
+
+    75% {
+        transform: translateX(-15px) rotate(-4deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.card.shuffling {
+    animation: shuffle 0.6s ease-in-out;
+}
+
+button {
+    padding: 12px 28px;
+    font-size: 20px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #ff5722, #e64a19);
+    border: none;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(145deg, #ff7043, #d84315);
+}
