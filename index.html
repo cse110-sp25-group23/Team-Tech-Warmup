@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Card Deck Component</title>
+  <style>
+    body {
+      background: #202020;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    button {
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    card-deck {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Standard 52-Card Deck</h1>
+  <button id="shuffleBtn">Shuffle</button>
+  <card-deck></card-deck>
+
+  <script>
+    // Define Playing Card
+    class PlayingCard extends HTMLElement {
+      constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: 'open' });
+
+        const style = document.createElement('style');
+        style.textContent = `
+          .card-container {
+            perspective: 1000px;
+            display: inline-block;
+          }
+          .playing-card {
+            width: 80px;
+            height: 120px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+          }
+          .playing-card.flip {
+            transform: rotateY(180deg);
+          }
+          .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            backface-visibility: hidden;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+          .card-front {
+            background-color: white;
+            color: black;
+          }
+          .card-back {
+            background-color: red;
+            transform: rotateY(180deg);
+            color: white;
+          }
+        `;
+
+        const rank = this.getAttribute('rank') || '?';
+        const suit = this.getAttribute('suit') || '';
+
+        const container = document.createElement('div');
+        container.classList.add('card-container');
+        container.innerHTML = `
+          <div class="playing-card">
+            <div class="card-face card-front">${rank}${suit}</div>
+            <div class="card-face card-back">🎴</div>
+          </div>
+        `;
+
+        shadow.appendChild(style);
+        shadow.appendChild(container);
+
+        const card = container.querySelector('.playing-card');
+        container.addEventListener('click', () => {
+          card.classList.toggle('flip');
+        });
+      }
+    }
+
+    customElements.define('playing-card', PlayingCard);
+
+    // Define Card Deck
+    class CardDeck extends HTMLElement {
+      constructor() {
+        super();
+        this.suits = ['♠', '♥', '♦', '♣'];
+        this.ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        this.deck = [];
+      }
+
+      connectedCallback() {
+        this.renderDeck();
+      }
+
+      renderDeck() {
+        this.innerHTML = ''; // Clear current deck
+        this.deck = [];
+
+        for (let suit of this.suits) {
+          for (let rank of this.ranks) {
+            const card = document.createElement('playing-card');
+            card.setAttribute('rank', rank);
+            card.setAttribute('suit', suit);
+            this.deck.push(card);
+          }
+        }
+
+        this.deck.forEach(card => this.appendChild(card));
+      }
+
+      shuffleDeck() {
+        // Fisher-Yates Shuffle
+        for (let i = this.deck.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
+        }
+
+        // Re-render
+        this.innerHTML = '';
+        this.deck.forEach(card => {
+          card.style.opacity = 0;
+          this.appendChild(card);
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity 0.5s ease';
+            card.style.opacity = 1;
+          });
+        });
+      }
+    }
+
+    customElements.define('card-deck', CardDeck);
+
+    // Shuffle Button
+    document.getElementById('shuffleBtn').addEventListener('click', () => {
+      document.querySelector('card-deck').shuffleDeck();
+    });
+  </script>
+
+</body>
+</html>
+
