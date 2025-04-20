@@ -1,5 +1,3 @@
-
-
 class PlayingCard extends HTMLElement {
     constructor(){
         super();
@@ -25,7 +23,8 @@ class CardDeck extends HTMLElement {
             <section class="deck">
                 <h2>Card Deck</h2>
                     <button name="shuffle">Shuffle Deck</button>
-                    <img src="card_deck.jpg" alt="Top of facedown card deck" width="620" height="370">
+                    <br>
+                    <img src="media/card_deck.jpg" alt="Top of facedown card deck" width="620" height="370">
                 <div class="cards"></div>
             </section> 
         `;
@@ -39,7 +38,7 @@ class CardDeck extends HTMLElement {
             deckImage.src = "https://miro.medium.com/v2/resize:fit:828/format:webp/1*3l1h9uWiNRggMXH-ibcVVA.gif";
 
             setTimeout(() => { //reset to original image after gif is done
-                deckImage.src = "card_deck.jpg";
+                deckImage.src = "media/card_deck.jpg";
             }, 2000);
         });
 
