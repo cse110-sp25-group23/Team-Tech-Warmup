@@ -20,7 +20,7 @@ Here are the meeting notes about the process: [4-17-25](https://github.com/cse11
 We are following the assignment step-by-step:
 
 - ✅ **Step 1**: Basic card and deck widget
-- 🔲 **Step 2**: Deck logic and card dealing
+- ✅ **Step 2**: Deck logic and card dealing
 - 🔲 **Step 3**: Simple Blackjack game
 
 ---
