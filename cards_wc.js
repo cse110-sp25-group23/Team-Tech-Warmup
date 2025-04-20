@@ -33,6 +33,11 @@ document.getElementById("newRound").addEventListener("click", () => {
     const dealerCards = document.getElementById("dealerCards");
     console.log("Dealing cards for new round");
 
+    //clear cards
+    playerCards.innerHTML = '';
+    dealerCards.innerHTML = '';
+
+    //add 2 player cards
     let cardVals = drawCards(1, deck);
     let newCard = createPlayingCard(cardVals);
     playerCards.appendChild(newCard);
@@ -41,6 +46,7 @@ document.getElementById("newRound").addEventListener("click", () => {
     newCard = createPlayingCard(cardVals);
     playerCards.appendChild(newCard);
     
+    //add 2 dealer cards
     cardVals = drawCards(1, deck);
     newCard = createPlayingCard(cardVals);
     dealerCards.appendChild(newCard);
