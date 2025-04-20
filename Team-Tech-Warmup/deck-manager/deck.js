@@ -58,7 +58,9 @@ card.appendChild(back);
 
 function setupDropZone() {
     const dropZone = document.getElementById("my-deck");
+    const fullDeck = document.getElementById("deck");
 
+    // Drop into my-deck (player hand)
     dropZone.addEventListener("dragover", (e) => {
         e.preventDefault();
         dropZone.style.borderColor = "lightgreen";
@@ -78,7 +80,41 @@ function setupDropZone() {
         const scene = dropZone.lastElementChild;
         const card = scene.querySelector(".card");
 
-        // Rebind events
+        card.setAttribute("draggable", "true");
+        card.classList.add("draggable");
+
+        card.addEventListener("click", () => {
+            card.classList.toggle("is-flipped");
+        });
+
+        card.addEventListener("dragstart", (e) => {
+            e.dataTransfer.setData("text/plain", scene.outerHTML);
+            setTimeout(() => {
+                scene.remove();
+            }, 0);
+        });
+    });
+
+    // Drop back into the full deck
+    fullDeck.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        fullDeck.style.borderColor = "lightblue";
+    });
+
+    fullDeck.addEventListener("dragleave", () => {
+        fullDeck.style.borderColor = "white";
+    });
+
+    fullDeck.addEventListener("drop", (e) => {
+        e.preventDefault();
+        fullDeck.style.borderColor = "white";
+
+        const data = e.dataTransfer.getData("text/plain");
+        fullDeck.insertAdjacentHTML("beforeend", data);
+
+        const scene = fullDeck.lastElementChild;
+        const card = scene.querySelector(".card");
+
         card.setAttribute("draggable", "true");
         card.classList.add("draggable");
 
@@ -94,5 +130,6 @@ function setupDropZone() {
         });
     });
 }
+
 
 window.addEventListener("load", renderFullDeck);
