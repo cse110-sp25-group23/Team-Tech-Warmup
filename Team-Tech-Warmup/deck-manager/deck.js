@@ -25,7 +25,16 @@ function renderFullDeck() {
 
             const card = document.createElement("div");
             card.classList.add("card", suit);
-            card.textContent = value + " " + getSuitIcon(suit);
+            const front = document.createElement("div");
+            front.classList.add("card-front");
+            front.innerHTML = value + " " + getSuitIcon(suit);
+
+            const back = document.createElement("div");
+            back.classList.add("card-back");
+
+card.appendChild(front);
+card.appendChild(back);
+
 
             // Only becomes draggable after click
             card.addEventListener("click", () => {

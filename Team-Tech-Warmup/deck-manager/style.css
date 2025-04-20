@@ -118,4 +118,8 @@ body {
     padding: 10px;
     text-align: center;
     font-family: 'Impact';
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
