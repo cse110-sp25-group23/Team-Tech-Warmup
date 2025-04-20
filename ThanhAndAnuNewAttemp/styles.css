@@ -1,43 +1,68 @@
 body {
-    background: radial-gradient(circle, #1b5e20 0%, #0d3b15 100%);
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #ff4d4d;
+    font-size: 2em;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+#bank-area {
+    color: white;
+    margin: 20px 0;
+    font-size: 1.3rem;
+}
+
+#bet {
+    width: 80px;
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+
+#dealer-area,
+#player-area {
+    margin-top: 40px;
+}
+
+.card-row {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: sans-serif;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.deck-container {
-    text-align: center;
-}
-
-#deck {
-    position: relative;
-    width: 180px;
-    height: 260px;
-    margin: 0 auto 30px;
-}
-
-/* Stack all cards */
-playing-card {
-    position: absolute;
-    top: 0;
-    left: 0;
+#button-area {
+    margin-top: 50px;
 }
 
 button {
-    padding: 12px 28px;
-    font-size: 20px;
-    border-radius: 8px;
-    background: linear-gradient(145deg, #ff5722, #e64a19);
-    border: none;
+    background-color: #444;
     color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
 }
 
 button:hover {
-    background: linear-gradient(145deg, #ff7043, #d84315);
+    background-color: #666;
+}
+
+#deck {
+    margin: 30px auto 0;
+    width: 120px;
+    height: 180px;
 }

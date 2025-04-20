@@ -4,22 +4,40 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deck Shuffle Animation</title>
+    <title>🃏 Blackjack Game</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="CardComponents.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <div class="deck-container">
-        <div id="deck">
-            <playing-card></playing-card>
-            <playing-card></playing-card>
-            <playing-card></playing-card>
-            <playing-card></playing-card>
-            <playing-card></playing-card>
-        </div>
-        <button id="shuffleBtn">Shuffle</button>
+    <h1>🃏 Blackjack Mini Game</h1>
+
+    <div id="deck">
+        <playing-card value="🂠"></playing-card>
+    </div>
+
+    <div id="dealer-area">
+        <h2>Dealer's Cards</h2>
+        <div class="card-row" id="dealer-cards"></div>
+    </div>
+
+    <div id="player-area">
+        <h2>Your Cards</h2>
+        <div class="card-row" id="player-cards"></div>
+    </div>
+
+    <div id="bank-area">
+        <p>💵 Money: $<span id="money">1000</span></p>
+        <label for="bet">Bet Amount: </label>
+        <input type="number" id="bet" value="100" min="10" max="1000" step="10">
+    </div>
+
+    <div id="button-area">
+        <button id="shuffle-button">Shuffle</button>
+        <button id="reset-button">Reset</button>
+        <button id="hit-button">Hit</button>
+        <button id="stand-button">Stand</button>
     </div>
 </body>
 
