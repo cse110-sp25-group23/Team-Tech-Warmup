@@ -61,7 +61,7 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 8px;
-    font-family: 'Impact', sans-serif; /* use Lato font */
+    font-family: 'Impact';
     font-size: 30pt; /* restored original size */
     color: black;
   }
