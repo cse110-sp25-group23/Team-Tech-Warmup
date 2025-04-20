@@ -8,11 +8,11 @@ const card_values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A",];
  * after creating the card, add it to the deck
  * @returns deck 
  */
-function create_deck() {
+export function create_deck() {
     let deck = [];
     for (let i = 0; i < suits.length; ++i) {
         for(let j = 0; j < card_values.length; ++j) {
-            let card = {"Suit": suits[i], "Value": card_values[j]};
+            let card = {"suit": suits[i], "value": card_values[j]};
             deck.push(card);
         }
     }
@@ -33,7 +33,7 @@ const deck = create_deck();
  * in order to imitate a shuffle 
  * @returns shuffled deck
  */
-function shuffle(deck) {
+export function shuffle(deck) {
     for(let i = deck.length - 1; i > 0; --i) {
         const index = Math.floor(Math.random() * (i + 1));
         [deck[i], deck[index]] = [deck[index], deck[i]]
@@ -48,7 +48,7 @@ const shuffled_deck = shuffle(deck);
 // console.log(shuffled_deck);
 // console.log();
 
-function drawCards(num, deck) {
+export function drawCards(num, deck) {
     /** Tracks cards drawn */
     const drawn_cards = [];
 

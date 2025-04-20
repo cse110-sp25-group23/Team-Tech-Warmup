@@ -1,0 +1,11 @@
+playing-card[suit="Hearts"], playing-card[suit="Hearts"]{
+    color: red;
+}
+
+playing-card p{
+    height: 75px;
+    max-width: 50px;
+    border: 2px solid black;
+    /*display: none;*/
+}
+

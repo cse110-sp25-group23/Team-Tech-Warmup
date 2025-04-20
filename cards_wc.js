@@ -1,22 +1,72 @@
+import { create_deck, shuffle, drawCards } from './cards_functions.js';
+
 class PlayingCard extends HTMLElement {
-    constructor(){
-        super();
-    }
-    /*connectedCallback() {
+    /*constructor(){
+        super(); //inherits parent attributes?
+    }*/
+    connectedCallback() {
         // Get attributes
         const suit = this.getAttribute("suit") || "placeholder";
-        const number = this.getAttribute("number") || "0";
-        //const imageSrc = this.getAttribute("image") || "placeholder.jpg";
+        const value = this.getAttribute("value") || "0";
         this.innerHTML = `
-            <h2>${number}${suit}</h2>
-            <!--<img src="${imageSrc}" alt="Screenshot of ${name}" width="200" height= "150">-->
+            <p>Playing Card: ${value} of ${suit}</p>
         `;
-    }*/
+    }
+
    //add button to flip card animation??
 }
-
-// Define the custom element
 customElements.define("playing-card", PlayingCard);
+
+
+
+let deck = shuffle(create_deck());
+
+function createPlayingCard(cardVals) {
+    const newCard = document.createElement("playing-card");
+    newCard.setAttribute("suit", cardVals.suit);
+    newCard.setAttribute("value", cardVals.value);
+    return newCard;
+}
+
+document.getElementById("newRound").addEventListener("click", () => {
+    const playerCards = document.getElementById("playerCards");
+    const dealerCards = document.getElementById("dealerCards");
+    console.log("Dealing cards for new round");
+
+    let cardVals = drawCards(1, deck);
+    let newCard = createPlayingCard(cardVals);
+    playerCards.appendChild(newCard);
+    
+    cardVals = drawCards(1, deck);
+    newCard = createPlayingCard(cardVals);
+    playerCards.appendChild(newCard);
+    
+    cardVals = drawCards(1, deck);
+    newCard = createPlayingCard(cardVals);
+    dealerCards.appendChild(newCard);
+    
+    cardVals = drawCards(1, deck);
+    newCard = createPlayingCard(cardVals);
+    dealerCards.appendChild(newCard);
+});
+
+document.getElementById("playerHit").addEventListener("click", () => {
+    const playerCards = document.getElementById("playerCards");
+    console.log("Player draws one card");
+
+    const cardVals = drawCards(1, deck);
+    const newCard = createPlayingCard(cardVals);
+    playerCards.appendChild(newCard);
+});
+
+document.getElementById("dealerHit").addEventListener("click", () => {
+    const dealerCards = document.getElementById("dealerCards");
+    console.log("Dealer draws one card");
+    
+    const cardVals = drawCards(1, deck);
+    const newCard = createPlayingCard(cardVals);
+    dealerCards.appendChild(newCard);
+});
 
 class CardDeck extends HTMLElement {
     connectedCallback() {

@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" media="screen" type="text/css" />
     <title>Blackjack Team Tech Assignment - Felicia and Sarah</title>
-    <script src="card-deck.js" defer></script>
+    <script type="module" src="cards_wc.js" defer></script>
   </head>
   <body>
     <header>
-        <h1>Blackjack Team Tech Assignment - Felicia and Sarah</h1>
-        <noscript>
-            <p>JavaScript is disabled in your browser. Please enable it for a better experience.</p>
-        </noscript>
+      <h1>Blackjack Team Tech Assignment - Felicia and Sarah</h1>
+      <noscript>
+        <p>JavaScript is disabled in your browser. Please enable it for a better experience.</p>
+      </noscript>
     </header>
     <card-deck></card-deck>
     <!--<playing-card></playing-card>--> <!--should insert playing card using JS after user calls the action draw-->
-    <button id="drawOneCard">Draw One Card</button>
-    <button id="drawTwoCards">Draw Two Cards</button>
+    <button id="newRound">Deal New Round</button>
+    <section id="playerCards">
+      <h3>Player's Cards</h3>
+      <button id="playerHit">Player Hit</button>
+
+    </section>
+    <section id="dealerCards">
+      <h3>Dealer's Cards</h3>
+      <button id="dealerHit">Dealer Hit</button>
+
+    </section>
   </body>
 </html>
