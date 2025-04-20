@@ -10,7 +10,7 @@ playing-card p{
 }
 
 button {
-    background: none;
+    background: #dddddd;
     border: 2px solid #333;
     color: #333;
     padding: 0.5em 1em;
@@ -22,7 +22,7 @@ button {
 
 button:hover {
     background: #333;
-    color: #fff;
+    color: #dddddd;
 }
 
 section#playerCards, section#dealerCards{
