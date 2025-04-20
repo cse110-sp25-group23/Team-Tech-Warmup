@@ -19,7 +19,7 @@ Here are the meeting notes about the process: [4-17-25](https://github.com/cse11
 
 We are following the assignment step-by-step:
 
-- ✅ **Step 1**: Basic card and deck widget (in progress / complete)
+- ✅ **Step 1**: Basic card and deck widget
 - 🔲 **Step 2**: Deck logic and card dealing
 - 🔲 **Step 3**: Simple Blackjack game
 
@@ -48,4 +48,12 @@ We are following the assignment step-by-step:
 Full SWOT included in [`/admin/adr/warmup-swot.pdf`](admin/adr/warmup-swot.pdf)
 
 ---
+
+## Sources
+How to create a card https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript 
+
+How to flip a card https://codepen.io/mondal10/pen/WNNEvjV
+
+---
+
 
