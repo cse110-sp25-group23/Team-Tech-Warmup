@@ -123,3 +123,12 @@ body {
     justify-content: center;
 }
 
+.suit-row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+    gap: 5px;
+    justify-content: center;
+}
+
+
