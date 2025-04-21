@@ -1,4 +1,3 @@
-Anna-Zoey Repo: https://github.com/annadoannn/Blackjack-Warmup# 
-<br/>
-Thanh-Anu-Niroop Repo : https://github.com/Thanh2x/CSE110BlackJack
+# Documentation
+Personal attempt at creating a blackjack game. The structure of my web components and the overall project is inspired by 134B, but a lot more simplified.
 
