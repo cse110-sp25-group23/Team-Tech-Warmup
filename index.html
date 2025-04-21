@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blackjack</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script type="module" src="js/playing-card.js"></script>
+  <script type="module" src="js/game.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Blackjack </h1>
+
+    <section id="dealer-area">
+        <h2>Dealer's Hand</h2>
+        <div class="card-row" id="dealer-hand"></div>
+        <p id="dealer-score">Score: ?</p>
+      </section>
+      
+      <section id="player-area">
+        <h2>Your Hand</h2>
+        <div class="card-row" id="player-hand"></div>
+        <p id="player-score">Score: 0</p>
+      </section>
+      
+
+    <section id="bank-area">
+      <p>Money: $<span id="money">1000</span></p>
+      <label for="bet">Bet Amount: </label>
+      <input type="number" id="bet" value="100" min="10" max="1000" step="10">
+    </section>
+
+    <section id="button-area">
+      <button id="reset">Reset</button>
+      <button id="hit">Hit</button>
+      <button id="stand">Stand</button>
+    </section>
+  </main>
+</body>
+</html>
